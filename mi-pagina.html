@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería "El Buen Sabor" - Donde la Experiencia Sirve el Mejor Café</title>
+    <meta name="description" content="Cafetería "El Buen Sabor" es un lugar acogedor atendido con pasión por personas de la tercera edad, ofreciendo cafés especiales, repostería y un ambiente inclusivo y accesible para todos.">
+    <meta name="keywords" content="cafetería, café, personas tercera edad, accesible, inclusivo, postres, menú, buen sabor">
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Georgia', serif; /* Una fuente clásica y legible */
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* Blanco suave */
+            color: #333;
+            font-size: 110%; /* Texto un poco más grande para mejor legibilidad */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Estilos para accesibilidad */
+        /* Fuentes y espaciado */
+        h1, h2, h3 {
+            font-family: 'Helvetica Neue', sans-serif; /* Fuente sans-serif para títulos, clara y moderna */
+            letter-spacing: 1px;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+
+        h1 { font-size: 2.8em; color: #5C4033; /* Café oscuro */ }
+        h2 { font-size: 2.2em; color: #7B3F00; /* Marrón medio */ }
+        h3 { font-size: 1.6em; color: #A0522D; /* Sienna */ }
+
+        p, ul, ol, li, a {
+            font-size: 1.15em; /* Asegura un buen tamaño para todo el texto */
+            margin-bottom: 1em;
+        }
+
+        /* Contraste de colores */
+        header {
+            background-color: #7B3F00; /* Marrón medio */
+            color: #FFF;
+            padding: 1em 0;
+            text-align: center;
+            border-bottom: 5px solid #A0522D; /* Sienna más oscuro */
+        }
+
+        header h1 {
+            color: #FFF;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background-color: #A0522D; /* Sienna */
+            padding: 0.8em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFF;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus { /* Añadido focus para accesibilidad de teclado */
+            background-color: #5C4033; /* Café oscuro */
+            color: #FFD700; /* Dorado para contraste */
+            outline: 2px solid #FFD700; /* Resaltar el enfoque */
+            outline-offset: 2px;
+        }
+
+        footer {
+            background-color: #7B3F00; /* Marrón medio */
+            color: #FFF;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* Secciones */
+        section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #hero {
+            background: url('https://source.unsplash.com/1600x900/?coffee-shop-interior,elderly-people') no-repeat center center/cover; /* Imagen de fondo */
+            color: #FFF;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #hero::before { /* Capa oscura para mejorar legibilidad del texto */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        #hero .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        #hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #FFD700; /* Dorado */
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            color: #F8F8F8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* Menú de Café */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            background-color: #FDF5E6; /* Beige claro */
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .menu-item img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 2px solid #D2B48C; /* Tan */
+        }
+
+        .menu-item h3 {
+            color: #5C4033; /* Café oscuro */
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #A0522D; /* Sienna */
+            font-size: 1.4em;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Equipo */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .team-member {
+            background-color: #FDF5E6;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #D2B48C;
+            margin-bottom: 15px;
+            filter: grayscale(20%); /* Ligeramente desaturado */
+        }
+
+        .team-member h3 {
+            margin-bottom: 5px;
+            color: #5C4033;
+        }
+
+        .team-member p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* Accesibilidad extra */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #D2B48C; /* Tan */
+            color: #333;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Media Queries para diseño responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            p, ul, ol, li, a { font-size: 1em; }
+            #hero { padding: 80px 15px; min-height: 300px; }
+            #hero h2 { font-size: 2.5em; }
+            #hero p { font-size: 1.2em; }
+            nav ul li { margin: 0 8px; }
+            .container { padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 5px 0; }
+            nav ul li a { padding: 10px 0; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            #hero h2 { font-size: 2em; }
+            #hero p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header>
+        <div class="container">
+            <h1>Cafetería "El Buen Sabor"</h1>
+            <p>Donde la Experiencia Sirve el Mejor Café</p>
+        </div>
+    </header>
+
+    <nav aria-label="Navegación principal">
+        <div class="container">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#equipo">Nuestro Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section id="inicio">
+            <div id="hero">
+                <div class="hero-content">
+                    <h2 class="visually-hidden">Bienvenido a "El Buen Sabor"</h2>
+                    <p>Un lugar con encanto, aroma a tradición y sonrisas auténticas.</p>
+                </div>
+            </div>
+            <div class="container">
+                <h2 class="visually-hidden">Acerca de Nosotros</h2>
+                <p>En "El Buen Sabor", creemos que el café sabe mejor cuando se prepara con sabiduría y cariño. Nuestra cafetería es un espacio único donde cada taza cuenta una historia, preparada y servida con la dedicación de nuestro maravilloso equipo de personas de la tercera edad.</p>
+                <p>Nos enorgullece ofrecer un ambiente cálido y acogedor, donde la calidad del café se une a la riqueza de la experiencia humana. ¡Ven y disfruta de un momento especial con nosotros!</p>
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <h2>Nuestro Menú de Café</h2>
+                <p>Descubre nuestra variada selección, preparada con granos de alta calidad y la maestría de nuestros baristas experimentados.</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h3>Espresso Clásico</h3>
+                        <p>Intenso y aromático, la esencia pura del café.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?espresso" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?espresso" alt="Una taza de espresso clásico." loading="lazy">
+                        </picture>
+                        <span class="price">€2.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Cappuccino Tradicional</h3>
+                        <p>Espresso con leche espumada y un toque de cacao.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?cappuccino" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?cappuccino" alt="Una taza de cappuccino con arte latte." loading="lazy">
+                        </picture>
+                        <span class="price">€3.20</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Latte Macchiato</h3>
+                        <p>Leche vaporizada con una capa de espresso y espuma.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?latte" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?latte" alt="Un vaso de latte macchiato." loading="lazy">
+                        </picture>
+                        <span class="price">€3.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Café Americano</h3>
+                        <p>Un espresso diluido con agua caliente, suave y refrescante.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?americano" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?americano" alt="Una taza de café americano." loading="lazy">
+                        </picture>
+                        <span class="price">€2.80</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Café con Leche Descafeinado</h3>
+                        <p>El mismo sabor delicioso, sin cafeína. Con leche fresca.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?decaf-coffee" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?decaf-coffee" alt="Una taza de café descafeinado con leche." loading="lazy">
+                        </picture>
+                        <span class="price">€3.00</span>
+                    </div>
+                    <div class="menu-item">
+                        <h3>Mocaccino Especial</h3>
+                        <p>Espresso, chocolate, leche y nata montada. Una delicia.</p>
+                        <picture>
+                            <source srcset="https://source.unsplash.com/400x300/?mocha" media="(min-width: 600px)">
+                            <img src="https://source.unsplash.com/200x150/?mocha" alt="Un mocaccino con crema batida." loading="lazy">
+                        </picture>
+                        <span class="price">€4.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo">
+            <div class="container">
+                <h2>Conoce a Nuestro Maravilloso Equipo</h2>
+                <p>Nuestros baristas y personal de servicio traen consigo años de experiencia y un amor genuino por lo que hacen. ¡Cada interacción es un placer!</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://source.unsplash.com/150x150/?elderly-man-smiling" alt="Retrato de Luis, barista principal.">
+                        <h3>Luis, Barista Principal</h3>
+                        <p>Con 40 años de experiencia en la hostelería, Luis prepara cada café con una pasión inigualable.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://source.unsplash.com/150x150/?elderly-woman-smiling" alt="Retrato de Ana, encargada de repostería.">
+                        <h3>Ana, Repostera</h3>
+                        <p>Las tartas y dulces de Ana son famosos por su sabor casero y sus recetas secretas.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://source.unsplash.com/150x150/?old-man-glasses-smiling" alt="Retrato de Pedro, camarero.">
+                        <h3>Pedro, Camarero</h3>
+                        <p>Pedro te atenderá con una sonrisa y te recomendará el café perfecto para tu día.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://source.unsplash.com/150x150/?old-woman-smiling" alt="Retrato de Carmen, encargada de la bienvenida.">
+                        <h3>Carmen, Bienvenida</h3>
+                        <p>Carmen es la primera cara que verás, asegurándose de que te sientas como en casa desde el primer momento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <h2>Visítanos o Contáctanos</h2>
+                <p>Estamos ubicados en:</p>
+                <address>
+                    Calle Ficticia, 123<br>
+                    Ciudad del Café, CP 45678<br>
+                    País Imaginario
+                </address>
+                <p>Puedes llamarnos al: <a href="tel:+34912345678">(+34) 912 345 678</a></p>
+                <p>O enviarnos un correo: <a href="mailto:info@elbuensabor.com">info@elbuensabor.com</a></p>
+
+                <h3>Horario de Apertura:</h3>
+                <ul>
+                    <li>Lunes a Viernes: 8:00 AM - 7:00 PM</li>
+                    <li>Sábados: 9:00 AM - 8:00 PM</li>
+                    <li>Domingos: Cerrado</li>
+                </ul>
+
+                <h3>Accesibilidad en "El Buen Sabor":</h3>
+                <p>Nos comprometemos a que nuestra cafetería sea un lugar acogedor y accesible para todos. Contamos con:</p>
+                <ul>
+                    <li><strong>Rampas de acceso</strong> para sillas de ruedas en la entrada y en áreas clave.</li>
+                    <li><strong>Baños adaptados</strong> con barras de apoyo y espacio suficiente.</li>
+                    <li><strong>Menús en letra grande</strong> disponibles bajo petición.</li>
+                    <li><strong>Personal capacitado</strong> para asistir a personas con diversas necesidades.</li>
+                    <li><strong>Iluminación adecuada</strong> y sin deslumbramientos.</li>
+                    <li><strong>Sillas cómodas</strong> con brazos para facilitar el asiento y levantarse.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Cafetería "El Buen Sabor". Todos los derechos reservados. Diseñado para la accesibilidad.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
